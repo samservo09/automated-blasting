@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 import re
+import openpyxl
 from datetime import datetime
 
 # import data
@@ -39,4 +40,4 @@ for dpd in dpd_list:
     data_need = filtered_data[['EMAIL', 'HANDOVERAMOUNT', 'FULLNAME', 'ob_format']]
     data_need.columns = ['Email', '{{ob}}', '{{chname}}', '{{ob_format}}']
      # lagay yung filtered data sa new excel file
-    data_need.to_csv(os.path.join(output_folder, f'FRESH FLOW {dpd}DPD {formatted_date}.csv'), index=False)
+    data_need.to_excel(os.path.join(output_folder, f'FRESH FLOW {dpd}DPD {formatted_date}.xlsx'), index=False)
